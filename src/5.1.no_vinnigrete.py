@@ -2,12 +2,7 @@ import datetime
 import random
 
 def is_valid_date(date_str):
-    """ 
-    Check if the date is in a valid format (YYYY-MM-DD).
-
-    params: string format (YYYY-MM-DD)
-    return: True if valid date, otherwise False
-    """
+    """ .Check if the date is in a valid format (YYYY-MM-DD)."""
     try:
         datetime.datetime.strptime(date_str, "%Y-%m-%d")
         return True
@@ -15,12 +10,8 @@ def is_valid_date(date_str):
         return False
 
 def no_vinnigrete(date1, date2):
-    """ 
-    Generate a random date between two given dates and check if the date is a Wednesday.
+    """ .Generate a random date between two given dates and check if the date is a Wednesday.
     If it is, print a message saying "I don't have vinegar."
-
-    params: to strings in the format (YYYY-MM-DD)
-    return: random date between date1 and date2 and the day of the week
     """
 
     # Check if the date format is valid
