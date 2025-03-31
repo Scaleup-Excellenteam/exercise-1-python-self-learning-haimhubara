@@ -1,3 +1,10 @@
+"""
+This module provides arithmetic functions
+Functions:
+- add(a, b): Returns the sum of a and b
+- multiply(a, b): Returns the product of a and b
+"""
+
 import datetime
 import random
 
