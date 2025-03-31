@@ -1,6 +1,12 @@
 from PIL import Image
 
 def remember_remember(image_path):
+    """
+    The function try to extract hidden message from image by looking on black pixels
+
+    params: path to image
+    return: hidden message
+    """
     try:
         img = Image.open(image_path).convert("RGB")
     except Exception as e:

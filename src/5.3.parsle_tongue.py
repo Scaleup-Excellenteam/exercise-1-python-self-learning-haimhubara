@@ -1,6 +1,16 @@
 import re
 
 def parsle_tongue(file_path):
+
+    """
+    the function try to extract hidden sentence from binary file
+
+    params: path to file
+    return: hidden sentence
+    """
+
+
+
     pattern = re.compile(rb'[a-z]{5,}!')
     chunk_size = 4096
 

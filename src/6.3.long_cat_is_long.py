@@ -3,6 +3,13 @@ import string
 
 def long_cat_is_long(text):
 
+    """
+    The function get text and create dictionary with uniqes words
+
+    params:text
+    return: dictionary that every word inside uniqe
+    """
+
     text = text.lower()
 
 

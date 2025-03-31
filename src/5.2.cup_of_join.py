@@ -1,4 +1,11 @@
 def cup_of_join(sep=None, **kwargs):
+    """
+    the func get couple lists and merge them into one list and if we add seperator,
+     the func will add the seperator between every list
+
+     params: seperator and lists
+     return: merge the lists into one list with seperator between every list
+    """
     result_list = []
     count = 0
     length = len(kwargs)

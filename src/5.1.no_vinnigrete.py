@@ -2,6 +2,14 @@ import datetime
 import random
 
 def is_valid_date(date_str):
+    """ 
+    check if the date is valid format (YYYY-MM-DD)
+
+    params: string format (YYYY-MM-DD)
+    return: is valid date or not
+    """
+    
+
     try:
         datetime.datetime.strptime(date_str, "%Y-%m-%d")
         return True
@@ -9,6 +17,13 @@ def is_valid_date(date_str):
         return False
 
 def no_vinnigrete(date1, date2):
+      """ 
+      generate random date between two given dates 
+          and check if the date is wednesday if it is we print message no vinniger
+
+      params: to strings format (YYYY-MM-DD) 
+      return: random year between date1 and date2 and random day
+    """
 
     # check if the date valid
     if not is_valid_date(date1) or not is_valid_date(date2):

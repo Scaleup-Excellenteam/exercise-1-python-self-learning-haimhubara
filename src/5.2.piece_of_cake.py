@@ -1,4 +1,10 @@
 def piece_of_cake(dictionary, optional=None):
+    """
+    The func calculate the price of the products
+
+    params: dictionary and  optional list
+    return: price off all the keys in the dictionary that not in optional list
+    """
     if optional is None:
         optional = []
     price_of_recipe = 0

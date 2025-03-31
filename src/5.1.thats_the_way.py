@@ -2,6 +2,12 @@ import os
 
 def thats_the_way(path):
     try:
+        """ 
+        get path to file name and tell us the names of the files that start with deep
+
+        params: path to file name
+        return: files that start with deep
+        """
 
         # give list of all the files inside the path
         all_entries = os.listdir(path)
