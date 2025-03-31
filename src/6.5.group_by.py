@@ -17,5 +17,3 @@ def group_by(func, iterable):
 if __name__ == "__main__":
     result = group_by(len, ["hi", "bye", "yo", "try","mont"])
     print(result)
-
-

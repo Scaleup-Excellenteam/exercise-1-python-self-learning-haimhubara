@@ -93,6 +93,3 @@ if __name__ == "__main__":
     print(po.read_inbox("bob", num_messages=2))
     print(po.read_inbox("alice", num_messages=1))
     print(po.search_inbox("bob","Hello"))
-
-
-

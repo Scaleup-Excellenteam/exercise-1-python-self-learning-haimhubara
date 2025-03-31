@@ -33,5 +33,3 @@ if __name__ == "__main__":
     secret_messages = parsle_tongue(file_path)
     for message in secret_messages:
         print(message)
-
-
