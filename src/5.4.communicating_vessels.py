@@ -1,6 +1,6 @@
 from itertools import zip_longest
 
-def communicating_vessels(*iterables):
+def interleave(*iterables):
     """
     The func take cpuple iterators and uninte them one by one
 
@@ -14,5 +14,5 @@ def communicating_vessels(*iterables):
                 yield item
 
 if __name__ == "__main__":
-    result = list(communicating_vessels('abc', [1, 2, 3], ('!', '@', '#')))
+    result = list(interleave('abc', [1, 2, 3], ('!', '@', '#')))
     print(result) 
