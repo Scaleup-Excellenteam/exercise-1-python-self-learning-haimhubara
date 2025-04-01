@@ -36,12 +36,13 @@ class PostOffice:
         self.message_id = 0
         self.boxes = {user: [] for user in usernames}
 
-    def send_message(self, sender, recipient, message_body, urgent=False):
+    def send_message(self, sender, recipient, message_body, urgent=False, title=None):
         """Send a message to a recipient.
 
         :param str sender: The message sender's username.
         :param str recipient: The message recipient's username.
         :param str message_body: The body of the message.
+        :param str title: The title of the message.
         :param urgent: The urgency of the message.
         :type urgent: bool, optional
         :return: The message ID, auto incremented number.
@@ -58,6 +59,8 @@ class PostOffice:
             'body': message_body,
             'sender': sender,
             'read': False,
+            'unread': True,  # Add unread field
+            'title': title,  # Include title for the message
         }
         if urgent:
             user_box.insert(0, message_details)
@@ -102,7 +105,7 @@ class PostOffice:
             raise KeyError(f"User {username} does not exist.")
 
         user_box = self.boxes[username]
-        matching_messages = [msg for msg in user_box if search_term in msg['body'] or search_term in msg['sender']]
+        matching_messages = [msg for msg in user_box if search_term.lower() in msg['body'].lower() or search_term.lower() in msg['sender'].lower()]
 
         return matching_messages
 
@@ -110,10 +113,10 @@ class PostOffice:
 if __name__ == "__main__":
     po = PostOffice(["alice", "bob"])
 
-    po.send_message("alice", "bob", "Hello, Bob!")
-    po.send_message("bob", "alice", "Hi, Alice!", urgent=True)
-    po.send_message("alice", "bob", "What are you doing today?")
+    po.send_message("alice", "bob", "Hello, Bob!", title="Greeting")
+    po.send_message("bob", "alice", "Hi, Alice!", urgent=True, title="Quick response")
+    po.send_message("alice", "bob", "What are you doing today?", title="Plans for today")
 
     print(po.read_inbox("bob", num_messages=2))
     print(po.read_inbox("alice", num_messages=1))
-    print(po.search_inbox("bob", "Hello"))
+    print(po.search_inbox("bob", "tomorrow"))
