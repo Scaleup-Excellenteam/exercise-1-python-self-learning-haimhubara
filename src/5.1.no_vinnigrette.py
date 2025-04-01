@@ -2,8 +2,10 @@
 This module provides date-related functions.
 Functions:
 - is_valid_date(date_str): Checks if the date is in a valid format (YYYY-MM-DD).
-- no_vinaigrette(date1, date2): Generates a random date between two given dates and checks if the date is a Wednesday. If it's a Wednesday, it prints "I don't have vinegar".
- Otherwise, it prints "Ain't gettin' no vinaigrette today :(". Returns the random date and the corresponding day of the week.
+- no_vinaigrette(date1, date2): Generates a random date between two given dates and checks if the date is a Wednesday.
+ If it's a Wednesday, it prints "I don't have vinegar".
+ Otherwise, it prints "Ain't gettin' no vinaigrette today :(".
+  Returns the random date and the corresponding day of the week.
 """
 import datetime
 import random
