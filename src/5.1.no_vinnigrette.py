@@ -41,12 +41,15 @@ def no_vinaigrette(date1, date2):
 
     day_in_week = random_date_generated.weekday()
 
+    # Mapping days of the week to their string equivalents
+    days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
     if day_in_week == 2:  # Wednesday
         print("I don't have vinegar")
     else:
         print("Ain't gettin' no vinaigrette today :(")
 
-    return random_date_generated.strftime(time_format), day_in_week
+    return random_date_generated.strftime(time_format), days_of_week[day_in_week]
 
 
 if __name__ == "__main__":
