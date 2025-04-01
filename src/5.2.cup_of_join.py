@@ -1,3 +1,10 @@
+"""
+This module provides a function for merging multiple lists with an optional separator.
+
+Functions:
+- cup_of_join(*args, sep=None): Merges multiple lists into one, inserting a separator between them if provided.
+"""
+
 def cup_of_join(*args, sep=None):
     """
     The function receives multiple lists and merges them into one list.

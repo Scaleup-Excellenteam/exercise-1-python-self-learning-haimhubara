@@ -1,7 +1,8 @@
 """
 This module defines a function that calculates the time taken for a function to execute with provided parameters.
 Functions:
-- running_2000(f, *args, **kwargs): Measures the time it takes for the provided function `f` to run on the given parameters.
+- running_2000(f, *args, **kwargs): 
+Measures the time it takes for the provided function `f` to run on the given parameters.
 """
 
 import time
@@ -16,7 +17,7 @@ def running_2000(f, *args, **kwargs):
     return: the time that take to func to run  on this parameters
     """
     start_time = time.perf_counter()
-    result = f(*args, **kwargs)
+    f(*args, **kwargs)
     end_time = time.perf_counter()
 
     elapsed_time = end_time - start_time
@@ -27,4 +28,5 @@ def running_2000(f, *args, **kwargs):
 if __name__ == "__main__":
     print(running_2000(print, "Hello"))
     print(running_2000(zip, [1, 2, 3], [4, 5, 6]))
-    print(running_2000("Hi {name}".format, name="Bug"))
+    name="Bug"
+    print(running_2000(print,f"Hi {name}"))
