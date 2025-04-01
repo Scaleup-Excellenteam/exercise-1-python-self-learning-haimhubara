@@ -1,6 +1,5 @@
 """
 This module extracts hidden messages from a binary file.
-
 Functions:
 - parsle_tongue(file_path): Scans a binary file and extracts hidden words that match a specific pattern. 
   The function looks for words with at least five lowercase letters followed by an exclamation mark (!).

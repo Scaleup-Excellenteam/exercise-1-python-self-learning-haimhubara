@@ -1,6 +1,5 @@
 """
 This module provides file-related functions.
-
 Functions:
 - thats_the_way(path): Receives a directory path and returns a list of filenames that start with "deep". 
   If the directory does not exist, it prints an error message and returns an empty list.

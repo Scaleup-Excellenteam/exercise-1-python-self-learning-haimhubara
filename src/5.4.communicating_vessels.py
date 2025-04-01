@@ -1,3 +1,10 @@
+"""
+This module provides two functions for interleaving multiple iterators.
+Functions:
+- interleave(*iterables): Returns a list of interleaved items from all the iterators.
+- generator_interleave(*iterables): Returns a generator that yields interleaved items from all iterators.
+"""
+
 from itertools import zip_longest
 
 def interleave(*iterables):

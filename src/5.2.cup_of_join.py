@@ -1,6 +1,5 @@
 """
 This module provides list manipulation functions.
-
 Functions:
 - cup_of_join(*args, sep=None): Merges multiple lists into one. If a separator is provided, 
   it is inserted between every two lists.
