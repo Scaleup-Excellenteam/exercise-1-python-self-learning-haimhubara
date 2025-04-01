@@ -7,6 +7,7 @@ Measures the time it takes for the provided function `f` to run on the given par
 
 import time
 
+NAME = "Bug"
 
 def running_2000(f, *args, **kwargs):
 
@@ -28,5 +29,4 @@ def running_2000(f, *args, **kwargs):
 if __name__ == "__main__":
     print(running_2000(print, "Hello"))
     print(running_2000(zip, [1, 2, 3], [4, 5, 6]))
-    name="Bug"
-    print(running_2000(print,f"Hi {name}"))
+    print(running_2000(print,f"Hi {NAME}"))

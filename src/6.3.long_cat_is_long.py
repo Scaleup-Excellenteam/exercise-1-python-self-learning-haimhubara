@@ -42,7 +42,7 @@ def long_cat_is_long(text):
 
 
 if __name__ == "__main__":
-    text = """
+    text_in_main = """
     You see, wire telegraph is a kind of a very, very long cat.
     You pull his tail in New York and his head is meowing in Los Angeles.
     Do you understand this?
@@ -59,5 +59,5 @@ if __name__ == "__main__":
     }
 
 
-    result = long_cat_is_long(text)
+    result = long_cat_is_long(text_in_main)
     print(result == expected_result)
