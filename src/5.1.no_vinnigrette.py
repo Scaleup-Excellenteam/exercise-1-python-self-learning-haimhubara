@@ -4,7 +4,6 @@ Functions:
 - is_valid_date(date_str): Checks if the date is in a valid format (YYYY-MM-DD).
 - no_vinaigrette(date1, date2): Generates a random date between two given dates and checks if the date is a Wednesday. If it's a Wednesday, it prints "I don't have vinegar". Otherwise, it prints "Ain't gettin' no vinaigrette today :(". Returns the random date and the corresponding day of the week.
 """
-
 import datetime
 import random
 
@@ -16,13 +15,14 @@ def is_valid_date(date_str):
     except ValueError:
         return False
 
-def no_vinaigrette(date1, date2):
-    """Generate a random date between two given dates and check if the date is a Wednesday.
-    If it is, print a message saying "I don't have vinegar."
+def no_vinnigrete(date1, date2):
+    """Generate a random date between two given dates and check if the date is a Monday.
+    If it is, print a message saying "Ain't gettin' no vinaigrette today :(".
     """
     # Check if the date format is valid
     if not is_valid_date(date1) or not is_valid_date(date2):
-        return "Invalid date format"
+        print("Invalid date format")
+        return None, None
 
     # The format of the date
     time_format = "%Y-%m-%d"
@@ -41,17 +41,15 @@ def no_vinaigrette(date1, date2):
 
     day_in_week = random_date_generated.weekday()
 
-    # Mapping days of the week to their string equivalents
-    days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-
-    if day_in_week == 2:  # Wednesday
-        print("I don't have vinegar")
-    else:
+    if day_in_week == 0:  # Monday
         print("Ain't gettin' no vinaigrette today :(")
 
-    return random_date_generated.strftime(time_format), days_of_week[day_in_week]
-
+    return random_date_generated.strftime(time_format), day_in_week
 
 if __name__ == "__main__":
-    random_date = no_vinaigrette("2020-12-12", "1990-12-12")
-    print('The random date is', random_date[0], 'and the day of the week is', random_date[1])
+    start_date = input("Enter first date (YYYY-MM-DD): ")
+    end_date = input("Enter second date (YYYY-MM-DD): ")
+    
+    random_date = no_vinnigrete(start_date, end_date)
+    if random_date[0]:
+        print(f"The random date is {random_date[0]} and the weekday index is {random_date[1]}")
