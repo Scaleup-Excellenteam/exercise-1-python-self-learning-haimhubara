@@ -6,17 +6,21 @@ Functions:
 """
 
 import re
+import os
 
-def parsle_tongue(file_path):
+def parsle_tongue(file_path=None):
     """
     The function tries to extract a hidden sentence from a binary file.
 
     params:
-    - file_path (str): Path to the binary file.
+    - file_path (str): Path to the binary file. If None, it defaults to a predefined file.
 
     return:
     - A set of extracted hidden messages (strings).
     """
+    # If no file_path is provided, set a default one
+    if file_path is None:
+        file_path = os.path.join(os.path.dirname(__file__), 'logo.jpg')  # Default file path
 
     pattern = re.compile(rb'[a-z]{5,}!')
     chunk_size = 4096
@@ -36,7 +40,7 @@ def parsle_tongue(file_path):
     return messages
 
 if __name__ == "__main__":
-    file_path = 'logo.jpg'
-    secret_messages = parsle_tongue(file_path)
+    # If the script is run directly, it will use the default file path
+    secret_messages = parsle_tongue()
     for message in secret_messages:
         print(message)
