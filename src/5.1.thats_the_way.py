@@ -9,12 +9,12 @@ Functions:
 import os
 
 def thats_the_way(path):
-        """ 
-        get path to file name and tell us the names of the files that start with deep
+    """ 
+    get path to file name and tell us the names of the files that start with deep
 
-        params: path to file name
-        return: files that start with deep
-        """
+    params: path to file name
+    return: files that start with deep
+    """
     try:
 
         # give list of all the files inside the path
