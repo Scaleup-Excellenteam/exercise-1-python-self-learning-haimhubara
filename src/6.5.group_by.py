@@ -1,9 +1,12 @@
 """
 This module provides a function to group elements of an iterable based on a specific function applied to each element. 
-The `group_by` function allows grouping by various criteria, such as length of strings, modulo values, or custom logic defined by the user.
+The `group_by` function allows grouping by various criteria, such as length of strings, 
+modulo values, or custom logic defined by the user.
 Functions:
-- group_by(func, iterable): Groups elements of the iterable based on the result of applying the given function to each element. 
-  It returns a dictionary where the keys are the results of the function and the values are lists of items that share the same result.
+- group_by(func, iterable): 
+Groups elements of the iterable based on the result of applying the given function to each element. 
+  It returns a dictionary where the keys are the results of the function
+  and the values are lists of items that share the same result.
 """
 
 def group_by(func, iterable):
@@ -29,5 +32,4 @@ def group_by(func, iterable):
 
 
 if __name__ == "__main__":
-    result = group_by(len, ["hi", "bye", "yo", "try", "mont"])
-    print(result)
+  print(group_by(len, ["hi", "bye", "yo", "try", "mont"]))
