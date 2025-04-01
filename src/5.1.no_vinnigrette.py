@@ -7,10 +7,13 @@ Functions:
 import datetime
 import random
 
+
+TIME_FORMAT = "%Y-%m-%d"
+
 def is_valid_date(date_str):
     """Check if the date is in a valid format (YYYY-MM-DD)."""
     try:
-        datetime.datetime.strptime(date_str, "%Y-%m-%d")
+        datetime.datetime.strptime(date_str, TIME_FORMAT)
         return True
     except ValueError:
         return False
@@ -24,14 +27,11 @@ def no_vinnigrete(date1, date2):
         print("Invalid date format")
         return None, None
 
-    # The format of the date
-    time_format = "%Y-%m-%d"
-
     # The start date is the minimum between the two dates
-    start_date = datetime.datetime.strptime(min(date1, date2), time_format).date()
+    start_date = datetime.datetime.strptime(min(date1, date2), TIME_FORMAT).date()
 
     # The end date is the maximum between the two dates
-    end_date = datetime.datetime.strptime(max(date1, date2), time_format).date()
+    end_date = datetime.datetime.strptime(max(date1, date2), TIME_FORMAT).date()
 
     # Generate random days between start date and end date
     random_days = random.randint(0, (end_date - start_date).days)
@@ -44,7 +44,7 @@ def no_vinnigrete(date1, date2):
     if day_in_week == 0:  # Monday
         print("Ain't gettin' no vinaigrette today :(")
 
-    return random_date_generated.strftime(time_format), day_in_week
+    return random_date_generated.strftime(TIME_FORMAT), day_in_week
 
 if __name__ == "__main__":
     start_date = input("Enter first date (YYYY-MM-DD): ")
