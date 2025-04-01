@@ -12,6 +12,13 @@ Functions:
 
 import string
 
+TEXT_IN_MAIN = """
+You see, wire telegraph is a kind of a very, very long cat.
+You pull his tail in New York and his head is meowing in Los Angeles.
+Do you understand this?
+And radio operates exactly the same way: you send signals here, they receive them there.
+The only difference is that there is no cat.
+"""
 
 def long_cat_is_long(text):
 
@@ -42,13 +49,6 @@ def long_cat_is_long(text):
 
 
 if __name__ == "__main__":
-    text_in_main = """
-    You see, wire telegraph is a kind of a very, very long cat.
-    You pull his tail in New York and his head is meowing in Los Angeles.
-    Do you understand this?
-    And radio operates exactly the same way: you send signals here, they receive them there.
-    The only difference is that there is no cat.
-    """
 
     expected_result = {
         'you': 3, 'see': 3, 'wire': 4, 'telegraph': 9, 'is': 2, 'a': 1, 'kind': 4, 'of': 2, 'very': 4, 'long': 4,
@@ -59,5 +59,5 @@ if __name__ == "__main__":
     }
 
 
-    result = long_cat_is_long(text_in_main)
+    result = long_cat_is_long(TEXT_IN_MAIN)
     print(result == expected_result)
