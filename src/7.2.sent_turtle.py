@@ -89,7 +89,7 @@ class PostOffice:
         user_box = self.boxes[username]
         # Searching in the body and title of the message
         matching_messages = [
-        msg for msg in user_box if search_term.lower() 
+        msg for msg in user_box if search_term.lower()
         in msg['body'].lower() or search_term.lower() in msg['title'].lower()
         ]
 
