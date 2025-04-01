@@ -9,11 +9,13 @@ Functions:
 
 from PIL import Image
 
+DEFAULT_IMAGE_PATH = "resources/code.png"
+
 def remember_remember(image_path):
     """The function tries to extract a hidden message from an image by looking for black pixels."""
     try:
         img = Image.open(image_path).convert("RGB")
-    except Exception as e:
+    except (OSError, IOError) as e:
         print(f"Error loading image: {e}")
         return ""
 
@@ -35,6 +37,5 @@ def remember_remember(image_path):
     return "".join(message)
 
 if __name__ == "__main__":
-    image_path = "resources/code.png"
-    hidden_message = remember_remember(image_path)
+    hidden_message = remember_remember(DEFAULT_IMAGE_PATH)
     print("Hidden message:", hidden_message)

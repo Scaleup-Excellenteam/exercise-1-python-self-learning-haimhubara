@@ -10,8 +10,6 @@ Functions:
   4. Returns a dictionary with words as keys and their respective lengths as values.
 """
 
-import string
-
 TEXT_IN_MAIN = """
 You see, wire telegraph is a kind of a very, very long cat.
 You pull his tail in New York and his head is meowing in Los Angeles.
