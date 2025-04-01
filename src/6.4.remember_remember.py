@@ -37,5 +37,4 @@ def remember_remember(image_path):
     return "".join(message)
 
 if __name__ == "__main__":
-    hidden_message = remember_remember(DEFAULT_IMAGE_PATH)
-    print("Hidden message:", hidden_message)
+    print("Hidden message:", remember_remember(DEFAULT_IMAGE_PATH))
