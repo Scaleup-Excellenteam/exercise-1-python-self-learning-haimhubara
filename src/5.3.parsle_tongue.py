@@ -33,7 +33,8 @@ def parsle_tongue(file_path=None):
             data += chunk
             matches = pattern.findall(data)
             for match in matches:
-                messages.add(match.decode())
+                # Remove the '!' character before adding to the set
+                messages.add(match.decode()[:-1])  # Strip the '!' from the matched word
 
             data = data[-(len(pattern.pattern) * 2):]
 
