@@ -32,4 +32,4 @@ def group_by(func, iterable):
 
 
 if __name__ == "__main__":
-  print(group_by(len, ["hi", "bye", "yo", "try", "mont"]))
+    print(group_by(len, ["hi", "bye", "yo", "try", "mont"]))
