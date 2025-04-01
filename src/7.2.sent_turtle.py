@@ -36,19 +36,8 @@ class PostOffice:
         self.message_id = 0
         self.boxes = {user: [] for user in usernames}
 
-    def send_message(self, sender, recipient, message_body, urgent=False, title=None):
-        """Send a message to a recipient.
-
-        :param str sender: The message sender's username.
-        :param str recipient: The message recipient's username.
-        :param str message_body: The body of the message.
-        :param str title: The title of the message.
-        :param urgent: The urgency of the message.
-        :type urgent: bool, optional
-        :return: The message ID, auto incremented number.
-        :rtype: int
-        :raises KeyError: if the recipient does not exist.
-        """
+    def send_message(self, sender, recipient, title, message_body, urgent=False):
+        """Send a message to a recipient."""
         if recipient not in self.boxes:
             raise KeyError(f"Recipient {recipient} does not exist.")
 
@@ -59,25 +48,17 @@ class PostOffice:
             'body': message_body,
             'sender': sender,
             'read': False,
-            'unread': True,  # Add unread field
-            'title': title,  # Include title for the message
+            'unread': True,
+            'title': title,  # Adding title to the message
         }
         if urgent:
-            user_box.insert(0, message_details)
+            user_box.insert(0, message_details)  # Urgent messages go to the top
         else:
-            user_box.append(message_details)
+            user_box.append(message_details)  # Normal messages go to the bottom
         return self.message_id
 
     def read_inbox(self, username, num_messages=None):
-        """Read the user's inbox and mark messages as read.
-
-        :param str username: The user's inbox to read.
-        :param num_messages: The number of messages to return, or None for all.
-        :type num_messages: int or None
-        :return: A list of messages.
-        :rtype: list
-        :raises KeyError: if the user does not exist.
-        """
+        """Read the user's inbox and mark messages as read."""
         if username not in self.boxes:
             raise KeyError(f"User {username} does not exist.")
 
@@ -89,6 +70,7 @@ class PostOffice:
 
         for msg in unread_messages:
             msg['read'] = True
+            msg['unread'] = False  # Marking 'unread' as False after reading
 
         return unread_messages
 
@@ -105,7 +87,8 @@ class PostOffice:
             raise KeyError(f"User {username} does not exist.")
 
         user_box = self.boxes[username]
-        matching_messages = [msg for msg in user_box if search_term.lower() in msg['body'].lower() or search_term.lower() in msg['sender'].lower()]
+        # Searching in the body and title of the message
+        matching_messages = [msg for msg in user_box if search_term.lower() in msg['body'].lower() or search_term.lower() in msg['title'].lower()]
 
         return matching_messages
 
@@ -113,10 +96,10 @@ class PostOffice:
 if __name__ == "__main__":
     po = PostOffice(["alice", "bob"])
 
-    po.send_message("alice", "bob", "Hello, Bob!", title="Greeting")
-    po.send_message("bob", "alice", "Hi, Alice!", urgent=True, title="Quick response")
-    po.send_message("alice", "bob", "What are you doing today?", title="Plans for today")
+    po.send_message("alice", "bob", "Greeting", "Hello, Bob!")
+    po.send_message("bob", "alice", "Quick response", "Hi, Alice!", urgent=True)
+    po.send_message("alice", "bob", "Plans for today", "What are you doing today?")
 
-    print(po.read_inbox("bob", num_messages=2))
-    print(po.read_inbox("alice", num_messages=1))
-    print(po.search_inbox("bob", "tomorrow"))
+    print(po.read_inbox("bob", num_messages=2))  # Reads first 2 messages in Bob's inbox
+    print(po.read_inbox("alice", num_messages=1))  # Reads 1 message in Alice's inbox
+    print(po.search_inbox("bob", "tomorrow"))  # Search for 'tomorrow' in Bob's inbox
