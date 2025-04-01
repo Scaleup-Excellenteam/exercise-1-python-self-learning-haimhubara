@@ -1,3 +1,10 @@
+"""
+This module defines a function that calculates the time taken for a function to execute with provided parameters.
+
+Functions:
+- running_2000(f, *args, **kwargs): Measures the time it takes for the provided function `f` to run on the given parameters.
+"""
+
 import time
 
 

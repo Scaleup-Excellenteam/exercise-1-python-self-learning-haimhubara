@@ -1,15 +1,23 @@
+"""
+This module extracts hidden messages from a binary file.
+
+Functions:
+- parsle_tongue(file_path): Scans a binary file and extracts hidden words that match a specific pattern. 
+  The function looks for words with at least five lowercase letters followed by an exclamation mark (!).
+"""
+
 import re
 
 def parsle_tongue(file_path):
-
     """
-    the function try to extract hidden sentence from binary file
+    The function tries to extract a hidden sentence from a binary file.
 
-    params: path to file
-    return: hidden sentence
+    params:
+    - file_path (str): Path to the binary file.
+
+    return:
+    - A set of extracted hidden messages (strings).
     """
-
-
 
     pattern = re.compile(rb'[a-z]{5,}!')
     chunk_size = 4096

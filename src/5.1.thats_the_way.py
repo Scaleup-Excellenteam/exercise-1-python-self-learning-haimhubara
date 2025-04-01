@@ -1,13 +1,22 @@
+"""
+This module provides file-related functions.
+
+Functions:
+- thats_the_way(path): Receives a directory path and returns a list of filenames that start with "deep". 
+  If the directory does not exist, it prints an error message and returns an empty list.
+"""
+
+
 import os
 
 def thats_the_way(path):
-    try:
         """ 
         get path to file name and tell us the names of the files that start with deep
 
         params: path to file name
         return: files that start with deep
         """
+    try:
 
         # give list of all the files inside the path
         all_entries = os.listdir(path)

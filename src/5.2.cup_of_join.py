@@ -1,29 +1,32 @@
-def cup_of_join(sep=None, **kwargs):
-    """
-    the func get couple lists and merge them into one list and if we add seperator,
-     the func will add the seperator between every list
+"""
+This module provides list manipulation functions.
 
-     params: seperator and lists
-     return: merge the lists into one list with seperator between every list
+Functions:
+- cup_of_join(*args, sep=None): Merges multiple lists into one. If a separator is provided, 
+  it is inserted between every two lists.
+"""
+
+def cup_of_join(*args, sep=None):
+    """
+    The function receives multiple lists and merges them into one list.
+    If a separator is provided, it is inserted between every two lists.
+
+    params:
+    - *args: Any number of lists.
+    - sep (optional): The separator to insert between lists.
+
+    return:
+    - A merged list with the separator (if provided) between lists.
     """
     result_list = []
-    count = 0
-    length = len(kwargs)
-    if sep:
-        for key in kwargs:
-            result_list += kwargs[key]
-            count += 1
-            if count < length :
-                result_list.append(sep)
-    else:
-        for key in kwargs:
-            result_list += kwargs[key]
-            count += 1
-            if count < length:
-                result_list.append(",")
+    for i, lst in enumerate(args):
+        if i > 0 and sep is not None:  # Add separator only between lists (not at the end)
+            result_list.append(sep)
+        result_list.extend(lst)  # Add list elements
 
     return result_list
 
+
 if __name__ == "__main__":
-    result_list = cup_of_join( list1=[12,12,12], list2=[12,12,12])
-    print("result_list: ", result_list)
+    result_list = cup_of_join([12, 12, 12], [12, 12, 12])
+    print("result_list:", result_list)

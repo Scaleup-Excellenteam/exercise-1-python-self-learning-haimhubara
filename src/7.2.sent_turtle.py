@@ -1,3 +1,28 @@
+"""
+PostOffice class that allows users to send, receive, and search messages.
+
+This class simulates a simple postal system where users can send messages to each other.
+Each user has an inbox, and the system supports sending urgent messages, reading messages,
+and searching for messages by specific terms.
+
+Classes:
+    PostOffice: Manages user inboxes and message sending/receiving operations.
+
+Functions:
+    __init__(self, usernames):
+        Initializes the PostOffice with a list of users and their inboxes.
+
+    send_message(self, sender, recipient, message_body, urgent=False):
+        Sends a message from one user to another, with the option to mark it as urgent.
+
+    read_inbox(self, username, num_messages=None):
+        Reads the user's inbox, marking messages as read. Optionally, a number of messages can be specified.
+
+    search_inbox(self, username, search_term):
+        Searches for messages in the user's inbox containing the specified search term.
+"""
+
+
 class PostOffice:
     """A Post Office class. Allows users to message each other.
 
@@ -59,7 +84,6 @@ class PostOffice:
         if num_messages is not None:
             unread_messages = unread_messages[:num_messages]
 
-
         for msg in unread_messages:
             msg['read'] = True
 
@@ -92,4 +116,4 @@ if __name__ == "__main__":
 
     print(po.read_inbox("bob", num_messages=2))
     print(po.read_inbox("alice", num_messages=1))
-    print(po.search_inbox("bob","Hello"))
+    print(po.search_inbox("bob", "Hello"))

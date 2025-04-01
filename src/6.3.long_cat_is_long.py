@@ -1,3 +1,16 @@
+"""
+This module processes a text input to extract unique words and their lengths.
+
+Functions:
+- long_cat_is_long(text): Takes a string of text, processes it by removing non-alphabetic characters, 
+  converts it to lowercase, and returns a dictionary where each unique word is mapped to its length.
+  The function performs the following:
+  1. Converts the text to lowercase.
+  2. Splits the text into words.
+  3. Cleans each word by removing any non-alphabetic characters.
+  4. Returns a dictionary with words as keys and their respective lengths as values.
+"""
+
 import string
 
 
