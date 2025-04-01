@@ -28,10 +28,11 @@ def remember_remember(image_path):
     for x in range(width):
         for y in range(height):
             if is_black(pixels[x, y]):
-                message.append("X")
+                # Use the y-coordinate as an ASCII code, ensuring it's within the readable character range
+                if 32 <= y <= 126:
+                    message.append(chr(y))
 
     return "".join(message)
-
 
 if __name__ == "__main__":
     image_path = "resources/code.png"
