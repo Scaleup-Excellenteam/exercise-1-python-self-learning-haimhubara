@@ -1,10 +1,3 @@
-"""
-This module provides list manipulation functions.
-Functions:
-- cup_of_join(*args, sep=None): Merges multiple lists into one. If a separator is provided, 
-  it is inserted between every two lists.
-"""
-
 def cup_of_join(*args, sep=None):
     """
     The function receives multiple lists and merges them into one list.
@@ -23,9 +16,7 @@ def cup_of_join(*args, sep=None):
             result_list.append(sep)
         result_list.extend(lst)  # Add list elements
 
+    if sep is not None:
+        result_list.append(sep)  # Add separator at the end if required
+
     return result_list
-
-
-if __name__ == "__main__":
-    result_list = cup_of_join([12, 12, 12], [12, 12, 12])
-    print("result_list:", result_list)
